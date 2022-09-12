@@ -44,6 +44,7 @@
             <v-tab
                 v-for="(tab, t) in tabs"
                 :key="t"
+                :to="tab.to"
                 class="white--text">
               <v-icon class="white--text pr-2">{{ tab.icon }}</v-icon>
               {{ tab.title }}
@@ -75,6 +76,7 @@ export default {
         },
         {
           title: 'Contact',
+          to: '/contact',
           icon: 'mdi-email'
         },
         {
