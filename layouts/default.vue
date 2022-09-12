@@ -54,9 +54,11 @@
       </v-row>
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-row class="mt-5" justify="center">
+        <v-col cols="6">
         <Nuxt/>
-      </v-container>
+        </v-col>
+      </v-row>
     </v-main>
   </v-app>
 </template>
