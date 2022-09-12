@@ -23,7 +23,7 @@
           :rules="{
           required: true,
           digits: 10,
-          regex: '^(71|72|74|76|81|82|84|85|86|87|88|89)\\d{5}$'
+          regex: '^[0][\\d]+$'
         }"
       >
         <v-text-field
@@ -91,8 +91,8 @@
   </validation-observer>
 </template>
 <script>
-import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
-import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
+import {required, digits, email, max, regex} from 'vee-validate/dist/rules'
+import {extend, ValidationObserver, ValidationProvider, setInteractionMode} from 'vee-validate'
 
 setInteractionMode('eager')
 
@@ -141,10 +141,10 @@ export default {
   }),
 
   methods: {
-    submit () {
+    submit() {
       this.$refs.observer.validate()
     },
-    clear () {
+    clear() {
       this.name = ''
       this.phoneNumber = ''
       this.email = ''
