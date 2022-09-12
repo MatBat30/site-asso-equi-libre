@@ -1,117 +1,120 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
+        v-model="drawer"
+        width="14vw"
+        clipped
+        color="#e6e9ef"
+        fixed
+        app
     >
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.to"
+            router
+            exact
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="item.title"/>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
+        :clipped-left="clipped"
+        elevation="0"
+        color="#7287fd"
+        fixed
+        app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-toolbar-title class="white--text" v-text="title"/>
+      <v-row justify="center">
+        <v-col cols="5">
+          <v-tabs
+              background-color="#7287fd"
+              color="white"
+              centered
+              grow
+          >
+            <v-tab
+                v-for="(tab, t) in tabs"
+                :key="t"
+                class="white--text">
+              <v-icon class="white--text pr-2">{{ tab.icon }}</v-icon>
+              {{ tab.title }}
+            </v-tab>
+          </v-tabs>
+        </v-col>
+      </v-row>
     </v-app-bar>
     <v-main>
       <v-container>
-        <Nuxt />
+        <Nuxt/>
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
   name: 'DefaultLayout',
-  data () {
+  data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      fixed: true,
+      tabs: [
+        {
+          title: 'News',
+          icon: 'mdi-newspaper'
+        },
+        {
+          title: 'Contact',
+          icon: 'mdi-email'
+        },
+        {
+          title: 'Nous aider',
+          icon: 'mdi-heart'
+        }
+      ],
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-currency-eur',
+          title: 'Dons',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
+          icon: 'mdi-book-open-blank-variant',
+          title: 'Historique',
+          to: '/inspire'
+        },
+        {
+          icon: 'mdi-shield',
+          title: 'Protection des animaux',
+          to: '/inspire'
+        },
+        {
+          icon: 'mdi-book',
+          title: 'Biographie',
+          to: '/inspire'
+        },
+        {
+          icon: 'mdi-handshake',
+          title: 'Partenairs',
+          to: '/inspire'
+        },
+        {
+          icon: 'mdi-email',
+          title: 'Contact',
           to: '/inspire'
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Equi-libre'
     }
   }
 }
