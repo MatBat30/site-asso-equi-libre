@@ -1,5 +1,13 @@
 <template>
-  <validation-observer
+  <v-container>
+    <v-row justify="center">
+      <v-col cols="12">
+        <p class="text-center text-h2">
+          Nous Contacter
+        </p>
+      </v-col>
+      <v-col cols="12">
+    <validation-observer
       ref="observer"
       v-slot="{ invalid }"
   >
@@ -89,6 +97,10 @@
       </v-btn>
     </form>
   </validation-observer>
+      </v-col>
+    </v-row>
+
+  </v-container>
 </template>
 <script>
 import {required, digits, email, max, regex} from 'vee-validate/dist/rules'
