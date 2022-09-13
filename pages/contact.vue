@@ -6,7 +6,7 @@
           Nous Contacter
         </p>
       </v-col>
-    </v-row>
+      <v-col cols="12">
     <validation-observer
       ref="observer"
       v-slot="{ invalid }"
@@ -18,8 +18,10 @@
       <validation-provider
           v-slot="{ errors }"
           name="Name"
-          rules="required"
+          rules="required|max:10"
       >
+<!--          rules="required|max:100"-->
+<!--      >-->
         <v-text-field
             v-model="Nom"
             :error-messages="errors"
@@ -84,6 +86,7 @@
         <v-col cols="12">
         <validation-provider
           v-slot="{ errors }"
+          name="email"
           rules="required|email"
       >
         <v-text-field
@@ -116,6 +119,13 @@
           rules="unrequired"
           name="checkbox"
       >
+        <v-textarea
+            filled
+            name="input-7-4"
+            label="Déscription la plus détailler possible"
+            required
+
+        ></v-textarea>
         <v-checkbox
             v-model="checkbox"
             :error-messages="errors"
