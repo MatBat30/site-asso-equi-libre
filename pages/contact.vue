@@ -15,11 +15,12 @@
       <validation-provider
           v-slot="{ errors }"
           name="Name"
-          rules="required|max:10"
       >
+<!--          rules="required|max:100"-->
+<!--      >-->
         <v-text-field
             v-model="Name"
-            :counter="10"
+            :counter="undefined"
             :error-messages="errors"
             label="Nom"
             required
@@ -73,6 +74,13 @@
           rules="unrequired"
           name="checkbox"
       >
+        <v-textarea
+            filled
+            name="input-7-4"
+            label="Déscription la plus détailler possible"
+            required
+
+        ></v-textarea>
         <v-checkbox
             v-model="checkbox"
             :error-messages="errors"
@@ -82,9 +90,6 @@
             required
         ></v-checkbox>
       </validation-provider>
-      <v-text-field
-          label="Déscription la plus détailler possible"
-      ></v-text-field>
       <v-btn
           class="mr-4"
           type="submit"
