@@ -6,26 +6,48 @@
           Nous Contacter
         </p>
       </v-col>
-      <v-col cols="12">
+    </v-row>
     <validation-observer
       ref="observer"
       v-slot="{ invalid }"
   >
     <form @submit.prevent="submit">
+      <v-card class="pa-5" color="#dce0e8">
+      <v-row justify="center">
+      <v-col cols="6">
       <validation-provider
           v-slot="{ errors }"
           name="Name"
           rules="required|max:10"
       >
         <v-text-field
-            v-model="Name"
+            v-model="Nom"
             :counter="10"
             :error-messages="errors"
             label="Nom"
+            filled
             required
         ></v-text-field>
       </validation-provider>
+      </v-col>
+      <v-col cols="6">
       <validation-provider
+          v-slot="{ errors }"
+          name="Name"
+          rules="required|max:10"
+      >
+        <v-text-field
+            v-model="Prenom"
+            :counter="10"
+            :error-messages="errors"
+            label="Prénom"
+            filled
+            required
+        ></v-text-field>
+      </validation-provider>
+      </v-col>
+        <v-col cols="6">
+        <validation-provider
           v-slot="{ errors }"
           name="phoneNumber"
           :rules="{
@@ -35,16 +57,35 @@
         }"
       >
         <v-text-field
-            v-model="phoneNumber"
+            v-model="Telephone"
             :counter="10"
             :error-messages="errors"
             label="Votre numéro de téléphone"
+            filled
             required
         ></v-text-field>
       </validation-provider>
-      <validation-provider
+        </v-col>
+        <v-col cols="6">
+          <validation-provider
+              v-slot="{ errors }"
+              name="select"
+              rules="required"
+          >
+            <v-select
+                v-model="select"
+                :items="items"
+                :error-messages="errors"
+                label="type de contact"
+                data-vv-name="select"
+                required
+                filled
+            ></v-select>
+          </validation-provider>
+        </v-col>
+        <v-col cols="12">
+        <validation-provider
           v-slot="{ errors }"
-          name="email"
           rules="required|email"
       >
         <v-text-field
@@ -52,23 +93,27 @@
             :error-messages="errors"
             label="E-mail"
             required
+            filled
         ></v-text-field>
       </validation-provider>
-      <validation-provider
-          v-slot="{ errors }"
-          name="select"
-          rules="required"
-      >
-        <v-select
-            v-model="select"
-            :items="items"
-            :error-messages="errors"
-            label="type de contact"
-            data-vv-name="select"
-            required
-        ></v-select>
-      </validation-provider>
-      <validation-provider
+        </v-col>
+        <v-col cols="12">
+        <validation-provider
+            v-slot="{ errors }"
+            name="probleme"
+            rules="required"
+        >
+          <v-textarea
+              v-model="Probleme"
+              :error-messages="errors"
+              label="Déscription la plus détailler possible"
+              required
+              filled
+          ></v-textarea>
+        </validation-provider>
+        </v-col>
+        <v-col cols="12">
+        <validation-provider
           v-slot="{ errors }"
           rules="unrequired"
           name="checkbox"
@@ -82,24 +127,22 @@
             required
         ></v-checkbox>
       </validation-provider>
-      <v-text-field
-          label="Déscription la plus détailler possible"
-      ></v-text-field>
+        </v-col>
+        <v-col cols="4">
       <v-btn
+          block
           class="mr-4"
+          color="green"
           type="submit"
           :disabled="invalid"
       >
         submit
       </v-btn>
-      <v-btn @click="clear">
-        clear
-      </v-btn>
+        </v-col>
+      </v-row>
+      </v-card>
     </form>
   </validation-observer>
-      </v-col>
-    </v-row>
-
   </v-container>
 </template>
 <script>
@@ -110,27 +153,27 @@ setInteractionMode('eager')
 
 extend('digits', {
   ...digits,
-  message: '{_field_} needs to be {length} digits. ({_value_})',
+  message: 'Ce champ doit faire {length} chiffres.',
 })
 
 extend('required', {
   ...required,
-  message: '{_field_} can not be empty',
+  message: 'Ce champ doit etre remplis',
 })
 
 extend('max', {
   ...max,
-  message: '{_field_} may not be greater than {length} characters',
+  message: 'ce champ ne peut contenir plus de {length} characters',
 })
 
 extend('regex', {
   ...regex,
-  message: '{_field_} {_value_} does not match {regex}',
+  message: 'Ce champ doit etre valide',
 })
 
 extend('email', {
   ...email,
-  message: 'Email must be valid',
+  message: 'Email doit etre valide',
 })
 
 export default {
@@ -139,9 +182,11 @@ export default {
     ValidationObserver,
   },
   data: () => ({
-    name: '',
-    phoneNumber: '',
+    Telephone: '',
     email: '',
+    Nom: '',
+    Prenom: '',
+    Probleme: '',
     select: null,
     items: [
       'Adoption',
