@@ -20,10 +20,8 @@
       <validation-provider
           v-slot="{ errors }"
           name="Name"
-          rules="required|max:10"
+          rules="required"
       >
-<!--          rules="required|max:100"-->
-<!--      >-->
         <v-text-field
             v-model="Nom"
             :error-messages="errors"
@@ -33,7 +31,7 @@
         ></v-text-field>
       </validation-provider>
       </v-col>
-        </v-row>
+
       <v-col cols="6">
       <validation-provider
           v-slot="{ errors }"
@@ -49,6 +47,9 @@
         ></v-text-field>
       </validation-provider>
       </v-col>
+      </v-row>
+
+        <v-row justify="center">
         <v-col cols="6">
         <validation-provider
           v-slot="{ errors }"
@@ -101,6 +102,7 @@
         ></v-text-field>
       </validation-provider>
         </v-col>
+        </v-row>
         <v-col cols="12">
         <validation-provider
             v-slot="{ errors }"
@@ -143,14 +145,14 @@
         submit
       </v-btn>
         </v-col>
-<!--      </v-row>-->
       </v-card>
     </form>
   </validation-observer>
       </v-col>
-    </v-row>
   </v-container>
 </template>
+
+
 <script>
 import {required, digits, email, max, regex} from 'vee-validate/dist/rules'
 import {extend, ValidationObserver, ValidationProvider, setInteractionMode} from 'vee-validate'
