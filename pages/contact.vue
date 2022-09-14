@@ -11,7 +11,10 @@
       ref="observer"
       v-slot="{ invalid }"
   >
-    <form @submit.prevent="submit">
+    <form
+        @submit.prevent="submit"
+        ref="contact"
+    >
       <v-card class="pa-5" color="#dce0e8">
       <v-row justify="center">
       <v-col cols="6">
@@ -136,6 +139,7 @@
           color="green"
           type="submit"
           :disabled="invalid"
+          @click.prevent="send"
       >
         submit
       </v-btn>
@@ -146,6 +150,22 @@
   </validation-observer>
       </v-col>
     </v-row>
+    <v-snackbar
+        v-model="success"
+        absolute
+        color="success"
+        outlined
+    >
+      Message envoyé
+    </v-snackbar>
+    <v-snackbar
+        v-model="error"
+        absolute
+        color="error"
+        outlined
+    >
+      Une erreur est survenue
+    </v-snackbar>
   </v-container>
 </template>
 <script>
@@ -185,6 +205,8 @@ export default {
     ValidationObserver,
   },
   data: () => ({
+    success: false,
+    error: false,
     Telephone: '',
     email: '',
     Nom: '',
@@ -204,14 +226,23 @@ export default {
     submit() {
       this.$refs.observer.validate()
     },
-    clear() {
-      this.name = ''
-      this.phoneNumber = ''
-      this.email = ''
-      this.select = null
-      this.checkbox = null
-      this.$refs.observer.reset()
-    },
+    send () {
+      this.$axios.$post('/mail/send', {
+        from: this.email,
+        subject: 'Contact depuis le site',
+        text: 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme
+      }).then((result) => {
+        if (result === 'OK') {
+          this.success = true
+        }
+      }).catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error('Error when sending mail :')
+        // eslint-disable-next-line no-console
+        console.error(err)
+        this.error = true
+      })
+    }
   },
 }
 </script>
