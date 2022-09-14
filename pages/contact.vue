@@ -6,11 +6,13 @@
           Nous Contacter
         </p>
       </v-col>
+      </v-row>
       <v-col cols="12">
     <validation-observer
       ref="observer"
       v-slot="{ invalid }"
   >
+
     <form @submit.prevent="submit">
       <v-card class="pa-5" color="#dce0e8">
       <v-row justify="center">
@@ -31,6 +33,7 @@
         ></v-text-field>
       </validation-provider>
       </v-col>
+        </v-row>
       <v-col cols="6">
       <validation-provider
           v-slot="{ errors }"
@@ -147,7 +150,7 @@
         submit
       </v-btn>
         </v-col>
-      </v-row>
+<!--      </v-row>-->
       </v-card>
     </form>
   </validation-observer>
