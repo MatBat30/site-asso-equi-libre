@@ -23,8 +23,6 @@
           name="Name"
           rules="required"
       >
-<!--          rules="required|max:100"-->
-<!--      >-->
         <v-text-field
             v-model="Nom"
             :error-messages="errors"
@@ -101,12 +99,53 @@
         ></v-text-field>
       </validation-provider>
         </v-col>
+        <v-container>
+          <v-divider></v-divider>
+        </v-container>
+
+        <v-col cols="6">
+          <validation-provider
+              v-slot="{ errors }"
+              name="localisation"
+              rules="required"
+          >
+            <v-text-field
+                v-model="location"
+                :error-messages="errors"
+                label="localisation de l'animal"
+                filled
+                required
+            ></v-text-field>
+          </validation-provider>
+        </v-col>
+        <v-col cols="6"></v-col>
+
         <v-col cols="12">
         <validation-provider
             v-slot="{ errors }"
             name="probleme"
             rules="required"
         >
+          <v-col class="pa-0 pl-1" cols="1">
+            <v-tooltip top>
+              <template #activator="{ on, attrs }">
+                <v-icon
+                    v-bind="attrs"
+                    v-on="on"
+                >
+                  mdi-help-circle
+                </v-icon>
+              </template>
+              <span>-description incident.
+                -nom et prénom du propriétaire.
+                -description lieu de vie.
+                -categorie de l'urgence (suspect ,inquiétant,grave,vitale).
+                -depot de pleinte effectuer si oui quelle service ?
+                -nom et numero de la mairie affilié au lieu .
+                -nom et numero de la police munnicipale affilié au lieu.</span>
+            </v-tooltip>
+          </v-col>
+
           <v-textarea
               v-model="Probleme"
               :error-messages="errors"
@@ -116,6 +155,25 @@
           ></v-textarea>
         </validation-provider>
         </v-col>
+        <template>
+          <v-file-input
+              v-model="files"
+              placeholder="Upload your documents"
+              label="documents + photos"
+              multiple
+              prepend-icon="mdi-paperclip"
+          >
+            <template v-slot:selection="{ text }">
+              <v-chip
+                  small
+                  label
+                  color="primary"
+              >
+                {{ text }}
+              </v-chip>
+            </template>
+          </v-file-input>
+        </template>
         <v-col cols="12">
         <validation-provider
           v-slot="{ errors }"
@@ -126,9 +184,9 @@
             v-model="checkbox"
             :error-messages="errors"
             value="1"
-            label="vous accepter que vos coordonée soit divulguée au authoritées compeztante en cas de besoin ."
+            label="vous accépter que vos coordonée soit divulguée au autoritées compétante en cas de besoin ."
             type="checkbox"
-            required
+            unrequired
         ></v-checkbox>
       </validation-provider>
         </v-col>
@@ -212,6 +270,8 @@ export default {
     Nom: '',
     Prenom: '',
     Probleme: '',
+    location: '',
+    files: '',
     select: null,
     items: [
       'Adoption',
@@ -229,8 +289,8 @@ export default {
     send () {
       this.$axios.$post('/mail/send', {
         from: this.email,
-        subject: 'Contact depuis le site',
-        text: 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme
+        subject: 'Contact depuis le site, '+this.select ,
+        text: 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme+ '\n'+ this.files,
       }).then((result) => {
         if (result === 'OK') {
           this.success = true
