@@ -60,7 +60,7 @@
             v-model="Telephone"
             :counter="10"
             :error-messages="errors"
-            label="Votre numéro de téléphone"
+            label="Numéro de téléphone"
             filled
             required
         ></v-text-field>
@@ -107,7 +107,7 @@
           <v-textarea
               v-model="Probleme"
               :error-messages="errors"
-              label="Déscription la plus détailler possible"
+              label="Description la plus détaillée possible"
               required
               filled
           ></v-textarea>
@@ -119,13 +119,6 @@
           rules="unrequired"
           name="checkbox"
       >
-        <v-textarea
-            filled
-            name="input-7-4"
-            label="Déscription la plus détailler possible"
-            required
-
-        ></v-textarea>
         <v-checkbox
             v-model="checkbox"
             :error-messages="errors"
@@ -151,6 +144,8 @@
       </v-card>
     </form>
   </validation-observer>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <script>
