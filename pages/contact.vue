@@ -21,7 +21,7 @@
       <validation-provider
           v-slot="{ errors }"
           name="Name"
-          rules="required|max:10"
+          rules="required"
       >
 <!--          rules="required|max:100"-->
 <!--      >-->
