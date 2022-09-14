@@ -79,7 +79,9 @@ export default {
       tabs: [
         {
           title: 'News',
+          to: '/News',
           icon: 'mdi-newspaper'
+
         },
         {
           title: 'Contact',
@@ -100,27 +102,27 @@ export default {
         {
           icon: 'mdi-book-open-blank-variant',
           title: 'Historique',
-          to: '/inspire'
+          to: '/Historique'
         },
         {
           icon: 'mdi-shield',
           title: 'Protection des animaux',
-          to: '/inspire'
+          to: '/Protection des animaux'
         },
         {
           icon: 'mdi-book',
           title: 'Biographie',
-          to: '/inspire'
+          to: '/Biographie'
         },
         {
           icon: 'mdi-handshake',
           title: 'Partenairs',
-          to: '/inspire'
+          to: '/Partenairs'
         },
         {
           icon: 'mdi-email',
           title: 'Contact',
-          to: '/inspire'
+          to: '/Contact'
         }
       ],
       title: 'Equi-libre'
