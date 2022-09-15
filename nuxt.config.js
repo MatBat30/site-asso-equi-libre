@@ -36,7 +36,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,12 +47,26 @@ export default {
         to: 'jeyson.agutte0801@gmail.com'
       },
       smtp: {
+        // service: 'gmail',
+        // auth: {
+        //   user: 'jeysnator@gmail.com',
+        //   pass: 'rlgaddbyfjlesumc'
+        // }
         host: 'smtp.mailtrap.io',
         port: 2525,
         auth: {
           user: '49657d183f20d4',
           pass: '2d032df9ae6a8d'
         }
+        // host: 'mail.mylittleworkben.ch',
+        // port: 587,
+        // auth: {
+        //   user: 'test@mylittleworkben.ch',
+        //   pass: 'jaimelabite69'
+        // }
+      },
+      json: {
+        limit: '5mb'
       }
     }
     ]
@@ -61,10 +75,13 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
+    treeShake: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  axios: {
   }
 }
