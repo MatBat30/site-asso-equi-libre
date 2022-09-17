@@ -1,4 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -75,7 +74,10 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake: true
+    treeShake: true,
+    theme: {
+      dark: true
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

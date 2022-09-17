@@ -1,13 +1,18 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
       width="14vw"
       clipped
-      color="#e6e9ef"
+      color="#11111b"
       fixed
       app
     >
+      <v-card color="blue" class="rounded-0">
+        <p class="pl-4 py-4 text-h5">
+          Equi-Libre
+        </p>
+      </v-card>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -17,50 +22,21 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>
+              {{ item.icon }}
+            </v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      elevation="0"
-      color="#7287fd"
-      fixed
-      app
-    >
-      <v-toolbar-title class="white--text">
-        {{ title }}
-      </v-toolbar-title>
-      <v-row justify="center">
-        <v-col cols="5">
-          <v-tabs
-            background-color="#7287fd"
-            color="white"
-            centered
-            grow
-          >
-            <v-tab
-              v-for="(tab, t) in tabs"
-              :key="t"
-              :to="tab.to"
-              class="white--text"
-            >
-              <v-icon class="white--text pr-2">
-                {{ tab.icon }}
-              </v-icon>
-              {{ tab.title }}
-            </v-tab>
-          </v-tabs>
-        </v-col>
-      </v-row>
-    </v-app-bar>
     <v-main>
-      <v-row class="pb-10 mt-5" justify="center">
-        <v-col cols="6">
+      <v-row class="mb-0" justify="center">
+        <v-col class="py-0" cols="6">
           <Nuxt />
         </v-col>
       </v-row>
@@ -69,14 +45,16 @@
 </template>
 
 <script>
+import Contact from '@/pages/contact'
 export default {
   name: 'DefaultLayout',
+  components: { Contact },
   data () {
     return {
       clipped: true,
       drawer: true,
       fixed: true,
-      tabs: [
+      items: [
         {
           title: 'News',
           to: '/News',
@@ -90,10 +68,9 @@ export default {
         },
         {
           title: 'Nous aider',
-          icon: 'mdi-heart'
-        }
-      ],
-      items: [
+          icon: 'mdi-heart',
+          to: '/'
+        },
         {
           icon: 'mdi-currency-eur',
           title: 'Dons',
@@ -118,11 +95,6 @@ export default {
           icon: 'mdi-handshake',
           title: 'Partenairs',
           to: '/Partenairs'
-        },
-        {
-          icon: 'mdi-email',
-          title: 'Contact',
-          to: '/Contact'
         }
       ],
       title: 'Equi-libre'

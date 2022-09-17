@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row class="pb-0" justify="center">
       <v-col cols="12">
         <p class="text-center text-h2">
           Nous Contacter
@@ -15,7 +15,7 @@
             ref="contact"
             @submit.prevent="submit"
           >
-            <v-card class="pa-5" color="#dce0e8">
+            <v-card class="pa-5" color="#11111b">
               <v-row justify="center">
                 <v-col cols="6">
                   <validation-provider
@@ -167,26 +167,24 @@
                   </v-tooltip>
                 </v-col>
                 <v-col cols="6">
-                  <template>
-                    <v-file-input
-                      ref="aled"
-                      v-model="files"
-                      placeholder="Upload your documents"
-                      label="documents + photos"
-                      multiple
-                      filled
-                    >
-                      <template #selection="{ text }">
-                        <v-chip
-                          small
-                          label
-                          color="primary"
-                        >
-                          {{ text }}
-                        </v-chip>
-                      </template>
-                    </v-file-input>
-                  </template>
+                  <v-file-input
+                    ref="aled"
+                    v-model="files"
+                    placeholder="Upload your documents"
+                    label="documents + photos"
+                    multiple
+                    filled
+                  >
+                    <template #selection="{ text }">
+                      <v-chip
+                        small
+                        label
+                        color="primary"
+                      >
+                        {{ text }}
+                      </v-chip>
+                    </template>
+                  </v-file-input>
                 </v-col>
                 <v-col cols="6" />
                 <v-col cols="12">
@@ -213,14 +211,6 @@
                     type="submit"
                     :disabled="invalid"
                     @click.prevent="send"
-                  >
-                    submit
-                  </v-btn>
-                  <v-btn
-                    block
-                    class="mr-4"
-                    color="red"
-                    @click="aled"
                   >
                     submit
                   </v-btn>
@@ -288,15 +278,15 @@ export default {
   data: () => ({
     success: false,
     error: false,
-    Telephone: '0152361232',
-    email: 'aze@aze.com',
-    Nom: 'aze',
-    Prenom: 'aze',
-    Probleme: 'aze',
-    location: 'aze',
+    Telephone: '',
+    email: '',
+    Nom: '',
+    Prenom: '',
+    Probleme: '',
+    location: '',
     files: [],
     convertedFiles: [],
-    select: 'aze',
+    select: '',
     items: [
       'Adoption',
       'Alert maltraitance',
@@ -307,9 +297,6 @@ export default {
   }),
 
   methods: {
-    aled () {
-      console.log(this.files)
-    },
     submit () {
       this.$refs.observer.validate()
     },
