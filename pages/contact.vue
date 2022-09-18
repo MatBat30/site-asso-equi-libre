@@ -206,8 +206,8 @@
                 <v-col cols="4">
                   <v-btn
                     block
-                    class="mr-4"
-                    color="green"
+                    class="mr-4 black--text"
+                    color="#a6e3a1"
                     type="submit"
                     :disabled="invalid"
                     @click.prevent="send"
@@ -215,6 +215,9 @@
                     submit
                   </v-btn>
                 </v-col>
+                <v-fade-transition>
+                  <v-progress-linear v-if="loading" indeterminate rounded />
+                </v-fade-transition>
               </v-row>
             </v-card>
           </form>
@@ -223,17 +226,19 @@
     </v-row>
     <v-snackbar
       v-model="success"
+      light
+      class="black--text text--black"
       absolute
-      color="success"
-      outlined
+      color="#a6e3a1"
     >
       Message envoyé
     </v-snackbar>
     <v-snackbar
       v-model="error"
+      light
+      class="black--text"
       absolute
-      color="error"
-      outlined
+      color="#f38ba8"
     >
       Une erreur est survenue
     </v-snackbar>
@@ -278,6 +283,8 @@ export default {
   data: () => ({
     success: false,
     error: false,
+    loading: false,
+    value: 0,
     Telephone: '',
     email: '',
     Nom: '',
@@ -297,19 +304,16 @@ export default {
   }),
 
   methods: {
-    submit () {
-      this.$refs.observer.validate()
-    },
     async send () {
+      this.loading = true
       await this.convertFilesToBase64()
-      console.log(this.convertedFiles)
+      // console.log(this.convertedFiles)
       // let formData = new FormData();
       //
       // formData.append('from', this.email);
       // formData.append('subject', 'Contact depuis le site, ' + this.select);
       // formData.append('text', 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme);
       // formData.append('attachments', this.convertedFiles);
-
       this.$axios.$post('/mail/send', {
         from: this.email,
         subject: 'Contact depuis le site, ' + this.select,
@@ -318,6 +322,7 @@ export default {
       }).then((result) => {
         if (result === 'OK') {
           this.success = true
+          this.loading = false
         }
       }).catch((err) => {
         // eslint-disable-next-line no-console
@@ -325,6 +330,7 @@ export default {
         // eslint-disable-next-line no-console
         console.error(err)
         this.error = true
+        this.loading = false
       })
     },
     async convertFilesToBase64 () {
