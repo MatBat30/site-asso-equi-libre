@@ -69,12 +69,7 @@ export default {
         {
           title: 'Nous aider',
           icon: 'mdi-heart',
-          to: '/'
-        },
-        {
-          icon: 'mdi-currency-eur',
-          title: 'Dons',
-          to: '/'
+          to: '/Dons'
         },
         {
           icon: 'mdi-book-open-blank-variant',

@@ -170,7 +170,7 @@
                   <v-file-input
                     ref="aled"
                     v-model="files"
-                    placeholder="Upload your documents"
+                    placeholder="Déposer vos documents et photos"
                     label="documents + photos"
                     multiple
                     filled
@@ -197,9 +197,9 @@
                       v-model="checkbox"
                       :error-messages="errors"
                       value="1"
-                      label="vous accépter que vos coordonée soit divulguée au autoritées compétante en cas de besoin ."
+                      label="vous accépter que vos coordonée soit comuniqué au autoritées compétante en cas de besoin ."
                       type="checkbox"
-                      unrequired
+
                     />
                   </validation-provider>
                 </v-col>
@@ -314,6 +314,8 @@ export default {
       // formData.append('subject', 'Contact depuis le site, ' + this.select);
       // formData.append('text', 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme);
       // formData.append('attachments', this.convertedFiles);
+
+
       this.$axios.$post('/mail/send', {
         from: this.email,
         subject: 'Contact depuis le site, ' + this.select,
