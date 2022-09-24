@@ -206,7 +206,7 @@
                 <v-col cols="4">
                   <v-btn
                     block
-                    class="mr-4 black--text"
+                    class="black--text"
                     color="#a6e3a1"
                     type="submit"
                     :disabled="invalid"
@@ -216,7 +216,7 @@
                   </v-btn>
                 </v-col>
                 <v-fade-transition>
-                  <v-progress-linear v-if="loading" indeterminate rounded />
+                  <v-progress-linear v-show="loading" indeterminate rounded />
                 </v-fade-transition>
               </v-row>
             </v-card>
@@ -227,8 +227,8 @@
     <v-snackbar
       v-model="success"
       light
-      class="black--text text--black"
-      absolute
+      app
+      top
       color="#a6e3a1"
     >
       Message envoyé
@@ -236,7 +236,8 @@
     <v-snackbar
       v-model="error"
       light
-      class="black--text"
+      app
+      top
       absolute
       color="#f38ba8"
     >
