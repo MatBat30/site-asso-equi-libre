@@ -57,6 +57,12 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+          <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal">
+            <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
+            <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+            <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+          </form>
+
     </v-navigation-drawer>
     <v-main>
       <v-row class="mb-0" justify="center">
@@ -81,7 +87,7 @@ export default {
       dons: [
         {
           type: 'Dons monétaires',
-          to: '/Dons'
+          to: '/dons'
         },
         {
           type: 'Dons physique'
@@ -90,7 +96,7 @@ export default {
       items: [
         {
           title: 'News',
-          to: '/News',
+          to: '/',
           icon: 'mdi-newspaper'
 
         },
@@ -100,24 +106,19 @@ export default {
           icon: 'mdi-email'
         },
         {
-          icon: 'mdi-book-open-blank-variant',
-          title: 'Historique',
-          to: '/Historique'
-        },
-        {
           icon: 'mdi-shield',
-          title: 'Protection des animaux',
+          title: 'protection des animaux',
           to: '/Protection des animaux'
         },
         {
           icon: 'mdi-book',
-          title: 'Biographie',
-          to: '/Biographie'
+          title: 'Qui somme-nous ?',
+          to: '/qui_somme-nous'
         },
         {
           icon: 'mdi-handshake',
           title: 'Partenairs',
-          to: '/Partenairs'
+          to: '/partenairs'
         }
       ],
       title: 'Equi-libre'
@@ -125,3 +126,10 @@ export default {
   }
 }
 </script>
+<style>
+.paypal{
+  position: absolute;
+  bottom: 20px;
+  left: 25%;
+}
+</style>
