@@ -2,7 +2,7 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
-      width="14vw"
+      width="250px"
       clipped
       color="#11111b"
       fixed
@@ -14,6 +14,30 @@
         </p>
       </v-card>
       <v-list>
+        <v-list-group
+            :value="true"
+            no-action
+            prepend-icon="mdi-heart"
+        >
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title>Nous aider</v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item
+            v-for="(don, d) in dons"
+            :key="d"
+            :to="don.to"
+            link
+        >
+          <v-list-item-title>{{don.type}}</v-list-item-title>
+
+          <v-list-item-icon>
+            <v-icon v-text="icon"></v-icon>
+          </v-list-item-icon>
+        </v-list-item>
+        </v-list-group>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -54,6 +78,15 @@ export default {
       clipped: true,
       drawer: true,
       fixed: true,
+      dons: [
+        {
+          type: 'Dons monétaires',
+          to: '/Dons'
+        },
+        {
+          type: 'Dons physique'
+        },
+      ],
       items: [
         {
           title: 'News',
@@ -65,11 +98,6 @@ export default {
           title: 'Contact',
           to: '/contact',
           icon: 'mdi-email'
-        },
-        {
-          title: 'Nous aider',
-          icon: 'mdi-heart',
-          to: '/Dons'
         },
         {
           icon: 'mdi-book-open-blank-variant',

@@ -1,24 +1,13 @@
 <template>
-<v-container>
+  <v-container>
+    <form action="https://www.paypal.com/donate" method="post" target="_top">
+      <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
+      <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+      <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+    </form>
 
-  <div id="paypal-donate-button-container"></div>
 
-  <script>
-    PayPal.Donation.Button({
-
-      hosted_button_id: 'YOUR_SANDBOX_HOSTED_BUTTON_ID',
-      business: 'YOUR_EMAIL_OR_PAYERID',
-      image: {
-        src: 'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-        title: 'PayPal - The safer, easier way to pay online!',
-        alt: 'Donate with PayPal button'
-      },
-      onComplete: function (params) {
-        // Your onComplete handler
-      },
-    }).render('#paypal-donate-button-container');
-  </script>
-
-</v-container>
+  </v-container>
 
 </template>
+
