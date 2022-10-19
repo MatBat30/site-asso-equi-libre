@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="pb-0" justify="center">
+    <v-row class="xs" justify="center">
       <v-col cols="12">
         <p class="text-center text-h2">
           Nous Contacter
