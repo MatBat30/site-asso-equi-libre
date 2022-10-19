@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b03ae05f-f932-43d9-8e23-03448c8a4e65" name="site equi-libre" url="http://ftp.xn--qui-libre-93a.online">
+        <fileTransfer host="ftp.xn--qui-libre-93a.online" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

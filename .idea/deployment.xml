@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="site equi-libre" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="site equi-libre">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$/dist" web="https://xn--qui-libre-93a.online/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

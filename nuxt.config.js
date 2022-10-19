@@ -5,8 +5,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - asso_equi-libre',
-    title: 'asso_equi-libre',
+    // titleTemplate: '%s - asso_equi-libre',
+    title: 'Association Equi-Libre',
     htmlAttrs: {
       lang: 'fr'
     },

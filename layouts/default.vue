@@ -57,12 +57,11 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-          <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal">
-            <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
-            <input type="image" src="https://www.braintreepayments.com/images/features/paypal/paypal-button@2x.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" width="75%"/>
-            <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
-          </form>
-
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
+        <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+        <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+      </form>
     </v-navigation-drawer>
     <v-main>
       <v-row class="mb-0" justify="center">
@@ -86,11 +85,12 @@ export default {
       fixed: true,
       dons: [
         {
-          type: 'Dons monétaires',
-          to: '/dons'
+          type: 'Dons monnétaires',
+          to: '/dons_monnetaire'
         },
         {
-          type: 'Dons physique'
+          type: 'Dons physique',
+          to: '/dons_physique'
         },
       ],
       items: [
@@ -112,12 +112,12 @@ export default {
         },
         {
           icon: 'mdi-book',
-          title: 'Qui somme-nous ?',
+          title: 'Qui sommes-nous ?',
           to: '/qui_somme-nous'
         },
         {
           icon: 'mdi-handshake',
-          title: 'Partenairs',
+          title: 'Partenaires',
           to: '/partenairs'
         }
       ],
