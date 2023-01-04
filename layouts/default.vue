@@ -1,12 +1,12 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      v-model="drawer"
-      width="250px"
-      clipped
-      color="#11111b"
-      fixed
-      app
+        v-model="drawer"
+        width="250px"
+        clipped="true"
+        color="#11111b"
+        fixed="true"
+        app
     >
       <v-card color="blue" class="rounded-0">
         <p class="pl-4 py-4 text-h5">
@@ -57,19 +57,23 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-      <form action="https://www.paypal.com/donate" method="post" target="_top">
+      <v-responsive>
+      <form action="https://www.paypal.com/donate" method="post" target="_top" style=".paypal">
         <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
-        <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+        <input type="image" src="https://www.braintreepayments.com/images/features/paypal/paypal-button@2x.png"width="175px" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
         <img alt="" border="0" src="https://www.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
       </form>
+      </v-responsive>
     </v-navigation-drawer>
-    <v-main>
-      <v-row class="mb-0" justify="center">
-        <v-col class="py-0" cols="6">
-          <Nuxt />
-        </v-col>
-      </v-row>
-    </v-main>
+      <v-main>
+        <v-row class="mb-0" justify="center">
+          <v-col class="py-0">
+            <v-responsive>
+              <Nuxt />
+            </v-responsive>
+          </v-col>
+        </v-row>
+      </v-main>
   </v-app>
 </template>
 

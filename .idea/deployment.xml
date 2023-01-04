@@ -5,7 +5,7 @@
       <paths name="site equi-libre">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$/dist" web="https://xn--qui-libre-93a.online/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
