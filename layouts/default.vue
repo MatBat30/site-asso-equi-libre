@@ -1,7 +1,12 @@
 <template>
   <v-app dark>
-    <v-btn v-if="drawer" @click="drawer = false" color="primary" dark>Cacher menu</v-btn>
-    <v-btn v-if="!drawer" @click="drawer = true" color="primary" dark>Afficher menu</v-btn>
+    <div class="text-left" >
+      <v-btn v-if="!drawer" @click="drawer = true" color="primary" dark>
+        <v-icon dark>
+          mdi-format-list-bulleted-square
+        </v-icon>
+      </v-btn>
+    </div>
 
     <v-navigation-drawer
         v-model="drawer"
@@ -11,10 +16,18 @@
         fixed
         app
     >
+
     <v-card color="blue" class="rounded-0">
+
       <p class="pl-4 py-4 text-h5">
+        <v-btn v-if="drawer" @click="drawer = false" color="primary" dark>
+          <v-icon dark>
+            mdi-format-list-bulleted-square
+          </v-icon>
+        </v-btn>
         Equi-Libre
       </p>
+
     </v-card>
       <v-list>
         <v-list-group
