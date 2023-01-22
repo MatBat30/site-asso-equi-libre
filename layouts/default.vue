@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <div class="text-left" >
-      <v-btn v-if="!drawer" @click="drawer = true" color="primary" dark>
+      <v-btn v-if="!drawer" @click="drawer = true" color="primary" dark class="hidden-lg-and-up">
         <v-icon dark>
           mdi-format-list-bulleted-square
         </v-icon>
@@ -20,7 +20,7 @@
     <v-card color="blue" class="rounded-0">
 
       <p class="pl-4 py-4 text-h5">
-        <v-btn v-if="drawer" @click="drawer = false" color="primary" dark>
+        <v-btn v-if="drawer" @click="drawer = false" color="primary" dark class="hidden-lg-and-up">
           <v-icon dark>
             mdi-format-list-bulleted-square
           </v-icon>
