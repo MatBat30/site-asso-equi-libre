@@ -199,7 +199,6 @@
                       value="1"
                       label="vous accépter que vos coordonée soit comuniqué au autoritées compétante en cas de besoin ."
                       type="checkbox"
-
                     />
                   </validation-provider>
                 </v-col>
@@ -316,7 +315,6 @@ export default {
       // formData.append('text', 'Nom: ' + this.Nom + '\n' + 'prenom: ' + this.Prenom + '\n' + 'numéro de téléphone: ' + this.Telephone + '\n' + 'problème:' + this.select + '\n \n' + this.Probleme);
       // formData.append('attachments', this.convertedFiles);
 
-
       this.$axios.$post('/mail/send', {
         from: this.email,
         subject: 'Contact depuis le site, ' + this.select,
@@ -345,7 +343,7 @@ export default {
       }
     },
     convertFile (file) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const reader = new FileReader()
         reader.onload = (e) => {
           resolve(e.target.result)

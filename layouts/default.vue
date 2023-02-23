@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
-    <div class="text-left" >
-      <v-btn v-if="!drawer" @click="drawer = true" color="primary" dark class="hidden-lg-and-up">
+    <div class="text-left">
+      <v-btn v-if="!drawer" color="primary" dark class="hidden-lg-and-up " @click="drawer = true">
         <v-icon dark>
           mdi-format-list-bulleted-square
         </v-icon>
@@ -9,57 +9,54 @@
     </div>
 
     <v-navigation-drawer
-        v-model="drawer"
-        width="250px"
-        clipped
-        color="#11111b"
-        fixed
-        app
+      v-model="drawer"
+      width="250px"
+      clipped
+      color="#11111b"
+      fixed
+      app
     >
-
-    <v-card color="blue" class="rounded-0">
-
-      <p class="pl-4 py-4 text-h5">
-        <v-btn v-if="drawer" @click="drawer = false" color="primary" dark class="hidden-lg-and-up">
-          <v-icon dark>
-            mdi-format-list-bulleted-square
-          </v-icon>
-        </v-btn>
-        Equi-Libre
-      </p>
-
-    </v-card>
+      <v-card color="blue" class="rounded-0">
+        <p class="pl-4 py-4 text-h5">
+          <v-btn v-if="drawer" color="primary" dark class="hidden-lg-and-up" @click="drawer = false">
+            <v-icon dark>
+              mdi-format-list-bulleted-square
+            </v-icon>
+          </v-btn>
+          Equi-Libre
+        </p>
+      </v-card>
       <v-list>
         <v-list-group
-            :value="true"
-            no-action
-            prepend-icon="mdi-heart"
+          :value="true"
+          no-action
+          prepend-icon="mdi-heart"
         >
-          <template v-slot:activator>
+          <template #activator>
             <v-list-item-content>
               <v-list-item-title>Nous aider</v-list-item-title>
             </v-list-item-content>
           </template>
 
           <v-list-item
-              v-for="(don, d) in dons"
-              :key="d"
-              :to="don.to"
-              link
+            v-for="(don, d) in dons"
+            :key="d"
+            :to="don.to"
+            link
           >
-            <v-list-item-title>{{don.type}}</v-list-item-title>
+            <v-list-item-title>{{ don.type }}</v-list-item-title>
 
             <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
+              <v-icon v-text="icon" />
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
         <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-            :to="item.to"
-            router
-            exact
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
         >
           <v-list-item-action>
             <v-icon>
@@ -74,11 +71,18 @@
         </v-list-item>
       </v-list>
 
-      <form action="https://www.paypal.com/donate" method="post" target="_top"  class="paypal">
-        <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN" />
-        <input type="image" src="https://www.braintreepayments.com/images/features/paypal/paypal-button@2x.png" width="175px" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Bouton Faites un don avec PayPal" />
+      <form action="https://www.paypal.com/donate" method="post" target="_top" class="paypal">
+        <input type="hidden" name="hosted_button_id" value="B9MGUHAECPNJN">
+        <input
+          type="image"
+          src="https://www.braintreepayments.com/images/features/paypal/paypal-button@2x.png"
+          width="175px"
+          border="0"
+          name="submit"
+          title="PayPal - The safer, easier way to pay online!"
+          alt="Bouton Faites un don avec PayPal"
+        >
       </form>
-
     </v-navigation-drawer>
     <v-main>
       <v-row class="mb-0" justify="center">
@@ -88,12 +92,9 @@
           </v-responsive>
         </v-col>
       </v-row>
-      </v-main>
-
+    </v-main>
   </v-app>
 </template>
-
-
 
 <script>
 import Contact from '@/pages/contact'
@@ -111,7 +112,7 @@ export default {
         {
           type: 'Dons physique',
           to: '/dons_physique'
-        },
+        }
       ],
       items: [
         {
