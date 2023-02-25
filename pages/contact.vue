@@ -20,11 +20,9 @@
                 Notre travail ne se limite pas à sauver les animaux de la maltraitance et de la négligence. Nous offrons également un refuge et des soins à long terme pour les animaux qui ont besoin d'un foyer aimant et sûr. Nous travaillons avec des vétérinaires qualifiés et des experts en bien-être animal pour garantir que les animaux sont soignés de manière appropriée et réhabilités de manière éthique.
               </p>
             </v-row>
-            <v-row>
-              <div>
-                <GmapMap :center="{lat: 45.5017, lng: -73.5673}" :zoom="10" style="width: 100%; height: 500px;" />
-              </div>
-            </v-row>
+            <div>
+              <GmapMap :center="{lat: 44.292722463057046, lng: 4.4751635920859085}" :zoom="17" style="width: 60%; height: 300px;" />
+            </div>
           </v-col>
           <v-col
             style="border: 1px solid violet"
