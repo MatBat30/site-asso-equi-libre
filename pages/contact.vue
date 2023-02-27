@@ -12,7 +12,7 @@
         <v-row style="border: 1px solid orange" align-content="stretch">
           <v-col cols="5" style="border: 1px solid violet">
             <v-row>
-              <p>
+              <p class="text-justify">
                 Notre association se consacre à la protection et au sauvetage des chevaux et animaux de ferme, en cas de maltraitance, abandon, négligence, cession volontaire ou pour de la retraite. Nous croyons que tous les animaux méritent une vie sûre, aimante et respectueuse, et nous travaillons sans relâche pour protéger ces animaux vulnérables.
 
                 En tant qu'association, nous avons la capacité d'agir librement et rapidement pour aider les animaux, mais nous reconnaissons également l'importance d'une approche collaborative et coordonnée. Nous travaillons donc en étroite collaboration avec les services de l'Etat en cas de besoin pour maximiser notre impact afin de les protéger .
@@ -147,7 +147,7 @@
                     <v-col class="pr-0" cols="11">
                       <validation-provider
                         v-slot="{ errors }"
-                        name="probleme"
+                        name="problème"
                         rules="required"
                       >
                         <v-textarea
@@ -275,8 +275,7 @@
 <script>
 import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
 import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-import * as VueGoogleMaps from 'vue2-google-maps'
-import Vue from 'vue'
+
 setInteractionMode('eager')
 
 extend('digits', {
@@ -332,14 +331,6 @@ export default {
     checkbox: null,
     apiKey: 'AIzaSyAVdE7dclGbUuJvsWNjUiGBk1R2OKm32Is'
   }),
-  mounted () {
-    Vue.use(VueGoogleMaps, {
-      load: {
-        key: this.apiKey,
-        libraries: 'places'
-      }
-    })
-  },
   async send () {
     this.loading = true
     await this.convertFilesToBase64()

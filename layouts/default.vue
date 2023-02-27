@@ -47,7 +47,7 @@
             <v-list-item-title>{{ don.type }}</v-list-item-title>
 
             <v-list-item-icon>
-              <v-icon v-text="icon" />
+              <v-icon icon="icon" />
             </v-list-item-icon>
           </v-list-item>
         </v-list-group>
