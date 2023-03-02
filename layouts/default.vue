@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <div class="text-left">
-      <v-btn v-if="!drawer" color="primary" dark class="hidden-lg-and-up " @click="drawer = true">
+      <v-btn v-if="!drawer" color="#00000" dark class="hidden-lg-and-up " @click="drawer = true">
         <v-icon dark>
           mdi-format-list-bulleted-square
         </v-icon>
@@ -10,20 +10,21 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      width="250px"
+      width="15%"
       clipped
-      color="#11111b"
+      color="goldenrod"
       fixed
       app
     >
-      <v-card color="blue" class="rounded-0">
+      <v-card color="#00000" class="rounded-0">
         <p class="pl-4 py-4 text-h5">
-          <v-btn v-if="drawer" color="primary" dark class="hidden-lg-and-up" @click="drawer = false">
+          <v-btn v-if="drawer" color="#00000" dark class="hidden-lg-and-up" @click="drawer = false">
             <v-icon dark>
               mdi-format-list-bulleted-square
             </v-icon>
           </v-btn>
           Equi-Libre
+          <img src="../static/logo-equi-libre.png" height="30%" width="30%">
         </p>
       </v-card>
       <v-list>
@@ -162,5 +163,6 @@ export default {
   position: absolute;
   bottom: 15px;
   left: 15%;
+  color: darkgoldenrod;
 }
 </style>

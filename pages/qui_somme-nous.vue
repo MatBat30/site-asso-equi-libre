@@ -41,7 +41,23 @@
       </v-col>
 
       <v-col style="border: 1px solid white" cols="5" offset="1">
-        <img src="../static/ApplicationFrameHost_tgiLCKsey8.png" height="268" width="396" alt="">
+        <v-card>
+          <v-card-text>
+            <v-responsive>
+              <iframe
+                src="https://www.facebook.com/plugins/video.php?height=322&href=https%3A%2F%2Fwww.facebook.com%2Fprotectionretraite30%2Fvideos%2F1279523292626678%2F&show_text=false&width=560&t=0"
+                width="100%"
+                height="350"
+                style="border:none;overflow:hidden"
+                scrolling="no"
+                frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowFullScreen="true"
+              />
+            </v-responsive>
+          </v-card-text>
+        </v-card>
       </v-col>
 
       <v-col style="border: 1px solid white" cols="5" offset="0">
@@ -103,6 +119,11 @@
 
 <script>
 export default {
+  data () {
+    return {
+      videoSrc: 'https://fb.watch/j0iVCFITUX/'
+    }
+  }
 }
 </script>
 import '@/scss/test.scss'
